@@ -20,6 +20,7 @@ const entrySchema = mongoose.Schema({
         type:Date,
         default: new Date()
     }
+   
 })
 
 const Entry = mongoose.model('entry',entrySchema)
