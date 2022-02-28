@@ -2,14 +2,11 @@ import { AUTH, SIGNUP_FAIL, LOGOUT, LOGOUT_FAIL, SIGNIN_FAIL, REFRESH_ACCESS_TOK
 import * as axios from "../../axios/axios"
 
 
-
-
 export const signUp = (formData) => async (dispatch) => {
     try {
         const { data } = await axios.signUp(formData)
 
         dispatch({ type: AUTH, payload: data })
-
     } catch (error) {
         dispatch({
             type: SIGNUP_FAIL,

@@ -17,20 +17,21 @@ function AuthPage() {
   const [login, setLogin] = useState(true)
 
   const dispatch = useDispatch()
-
   const navigate = useNavigate()
+
 
   const handleSignIn = async (e) => {
     e.preventDefault()
-    await dispatch(signIn(formData))
-    await navigate("/")
+    await dispatch(signIn(formData))   
+    navigate("/")
   }
 
   const handleSignUp = async (e) => {
     e.preventDefault()
     await dispatch(signUp(formData))
-    await navigate("/")
+    navigate("/")
   }
+
 
   return (
     <><div id='auth-page'>

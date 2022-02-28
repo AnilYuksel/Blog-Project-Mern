@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
@@ -8,6 +8,7 @@ import decode from "jwt-decode"
 
 
 const Navigation = ({ search }) => {
+    
     const dispatch = useDispatch()
     const location = useLocation()
     const [user, setUser] = useState()
@@ -18,16 +19,16 @@ const Navigation = ({ search }) => {
 
     const exit = async (id) => {
         await dispatch(logOut(id))
-        await setUser(null)
-        await navigate("/")
+        setUser(null)
+        navigate("/")
     }
 
-    const renewAccessToken = async (id) => {
+    const renewAccessToken = useCallback(async (id) => {
         if (!userState.googleLogin) {
             dispatch(getAccessToken(id))
             setUser(JSON.parse(localStorage.getItem("user")))
         }
-    }
+    }, [dispatch, userState])
 
     useEffect(() => {
         if (localStorage.getItem('user') && !user) {
@@ -47,7 +48,7 @@ const Navigation = ({ search }) => {
         return () => { clearInterval(interval) }
 
 
-    }, [location, user])
+    }, [location, user, renewAccessToken, userState])
 
 
     return (
