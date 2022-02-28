@@ -52,7 +52,7 @@ const Navigation = ({ search }) => {
 
     return (
 
-        <div className='d-flex align-items-start flex-column' id='nav'>
+        <div className='d-flex align-items-start flex-column w-25' id='nav'>
             <div>
                 <h1 className='mt-5'>ZAMAZINGO</h1>
             </div>

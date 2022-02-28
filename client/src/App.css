@@ -329,6 +329,9 @@ p{
 }
 
 @media only screen and (max-width: 576px) {
+  #nav-up {
+    padding: 30px 50px 30px 50px;
+  }
   #nav-up h1{
     font-size: x-small;
   }
@@ -339,6 +342,9 @@ p{
     width: 50%;
   }
   #nav a {
+    font-size: small;
+  }
+  #nav h1 {
     font-size: small;
   }
 }
