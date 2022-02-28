@@ -1,62 +1,49 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { signUp,signIn } from "../redux/actions/authActions"
-import Message from "../Components/Message"
-import Navigation from '../Components/Navigation'
+import { useDispatch } from "react-redux"
+import { signUp, signIn } from "../redux/actions/authActions"
+import NavigationUp from '../Components/NavigationUp'
+import { useNavigate } from "react-router-dom"
 
-
-
-function SignInPage() {
+function AuthPage() {
   const initialFormData = {
-    firstName: "",
-    lastName: "",
+    userName: "",
     email: "",
     password: "",
     confirmPassword: ""
   }
-
-  const userState = useSelector((state) => state.user)
-  const { error } = userState
 
   const [formData, setFormData] = useState(initialFormData)
   const [login, setLogin] = useState(true)
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate()
 
- 
-// function errorCheck() {
-//   const error = userState.error
-//   if (login) {
-//     dispatch(signIn(formData))
-//     if(!error){
-//       navigate("/")
-//     }
-//   } 
-// }
+  const handleSignIn = async (e) => {
+    e.preventDefault()
+    await dispatch(signIn(formData))
+    await navigate("/")
+  }
+
+  const handleSignUp = async (e) => {
+    e.preventDefault()
+    await dispatch(signUp(formData))
+    await navigate("/")
+  }
 
   return (
-    <>
-    <Navigation></Navigation>
-      <Container className='w-50 '>
+    <><div id='auth-page'>
+      <NavigationUp></NavigationUp>
+      <Container id='auth-page-container'>
         <Row>
           <Col >
             {
               login ?
                 (
-                  <Form className='align-content-center mt-3'
-                    onSubmit={(e) => {
-                      e.preventDefault()
-                      if (login) {
-                        dispatch(signIn(formData))
-                        
-                      }
-                      
-                    }}
-                  >
+                  <Form id='form' className='align-content-center mt-5'
+                    onSubmit={(e) => handleSignIn(e)}>
                     <h1 className='text-center mt-3'>Sign In</h1>
-                    {error && <Message>{error}!</Message>}
                     <Form.Group className='mt-3'>
                       <Form.Label>Email</Form.Label>
                       <Form.Control onChange={(e) => setFormData({ ...formData, email: e.target.value })} type='email' placeholder='E-mail'></Form.Control>
@@ -69,21 +56,12 @@ function SignInPage() {
                     <Form.Text>Don't have an account? <span onClick={(e) => setLogin(!login)} style={{ fontWeight: "bold", cursor: "pointer" }}>Sign Up</span> </Form.Text>
                   </Form>
                 )
-                : (<Form className='align-content-center mt-3'
-                  onSubmit={(e) => {
-                    e.preventDefault()
-                    if (!login) {
-                      dispatch(signUp(formData))
-                      
-                    }
-                  }}>
+                : (<Form id="form" className='align-content-center mt-5'
+                  onSubmit={(e) => handleSignUp(e)}>
                   <h1 className='text-center mt-3'>Sign Up</h1>
-                  {error && <Message>{error}!</Message>}
-                  <Form.Group className='d-flex'>
-
-                    <Form.Control className='m-2' onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} type='text' placeholder='First Name'></Form.Control>
-
-                    <Form.Control className='m-2' onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} type='text' placeholder='last Name'></Form.Control>
+                  <Form.Group className='mt-3'>
+                    <Form.Label>User Name</Form.Label>
+                    <Form.Control onChange={(e) => setFormData({ ...formData, userName: e.target.value })} type='text' placeholder='User Name'></Form.Control>
                   </Form.Group>
                   <Form.Group className='mt-3'>
                     <Form.Label>Email</Form.Label>
@@ -104,10 +82,11 @@ function SignInPage() {
           </Col>
         </Row>
       </Container>
+    </div>
     </>
   )
 }
 
-export default SignInPage
+export default AuthPage
 
 

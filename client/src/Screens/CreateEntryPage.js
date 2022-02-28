@@ -1,17 +1,17 @@
 import React from 'react'
-import Footer from '../Components/Footer'
-import Navigation from '../Components/Navigation'
+import NavigationUp from '../Components/NavigationUp'
 import CreateForm from "../Components/CreateForm"
 
 
 const CreateEntryPage = () => {
   return (
     <>
-      <Navigation></Navigation>
-      <div className='container w-50'>
-        <CreateForm></CreateForm>
+      <div id='create-page'>
+        <NavigationUp></NavigationUp>
+        <div className='container w-50'>
+          <CreateForm></CreateForm>
+        </div>
       </div>
-      <Footer></Footer>
     </>
 
   )

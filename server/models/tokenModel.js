@@ -1,12 +1,12 @@
 import mongoose from "mongoose"
 
-const tokenSchema = mongoose.Schema ({
+const tokenSchema = mongoose.Schema({
     userId: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     refreshToken: {
-        type:String
+        type: String
     }
 })
 

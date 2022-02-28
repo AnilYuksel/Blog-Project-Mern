@@ -1,9 +1,10 @@
 import express, { Router } from "express";
 const router = express.Router()
 import entryRouter from "./entryRouter.js";
-import userRouter from  "./userRouter.js"
+import authRouter from "./authRouter.js"
 
-router.use("/",entryRouter)
-router.use("/",userRouter)
+router.use("/", entryRouter)
+router.use("/", authRouter)
+
 
 export default router

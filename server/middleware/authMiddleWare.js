@@ -5,13 +5,19 @@ const authMiddleWare = async (req, res, next) => {
     try {
         const accessToken = req.headers.authorization.split(' ')[1]
 
-        const decodedToken = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRETKEY,(err,decodedAccessToken) => {
-            if(err) return res.status(403).json(err)
-            req.createrId = decodedAccessToken?.id
-            next()
-        })
+        const isGoogleLogin = accessToken.length > 500
+        let decodedToken
 
-        
+        if (accessToken && !isGoogleLogin) {
+            decodedToken = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRETKEY)
+            req.creatorId = decodedToken?.id
+        } else {
+            decodedToken = jwt.decode(accessToken)
+            req.creatorId = decodedToken?.sub
+        }
+
+        next()
+
     } catch (error) {
         console.log(error)
     }

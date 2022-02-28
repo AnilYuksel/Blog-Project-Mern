@@ -1,4 +1,4 @@
-import { AUTH, SIGNUP_FAIL, LOGOUT, LOGOUT_FAIL, SIGNIN_FAIL } from "../actions/actionConstants"
+import { AUTH, SIGNUP_FAIL, LOGOUT, LOGOUT_FAIL, SIGNIN_FAIL, REFRESH_ACCESS_TOKEN_SUCCESS, REFRESH_ACCESS_TOKEN_FAIL } from "../actions/actionConstants"
 
 const authReducer = (state = { userData: null }, action) => {
     switch (action.type) {
@@ -14,13 +14,12 @@ const authReducer = (state = { userData: null }, action) => {
             return { ...state, userData: null }
         case LOGOUT_FAIL:
             return { error: action.payload }
-        // case REFRESH_ACCESS_TOKEN_SUCCESS:
-        //     const data = {user:state.userData.user, accessToken: action.payload}
-
-        //     localStorage.setItem("user",JSON.stringify(data))
-        //     return {...state, userData:data}
-        // case REFRESH_ACCESS_TOKEN_FAIL:
-        //     return { error: action.payload }
+        case REFRESH_ACCESS_TOKEN_SUCCESS:
+            const data = { user: state.userData.user, accessToken: action.payload }
+            localStorage.setItem("user", JSON.stringify(data))
+            return { ...state, userData: data }
+        case REFRESH_ACCESS_TOKEN_FAIL:
+            return { error: action.payload }
 
         default:
             return state

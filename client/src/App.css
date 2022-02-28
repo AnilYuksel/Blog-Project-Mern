@@ -1,0 +1,304 @@
+#root {
+  background-color: #012649;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%230455A1' stroke-width='59' stroke-opacity='0.28' %3E%3Ccircle fill='%23012649' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%2301284c' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%2300294f' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23002b52' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23002c55' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23002e58' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23002f5b' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%2300315e' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23003361' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23003465' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23003668' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%2300376b' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%2300396e' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23003b71' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23003c74' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23003e78' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23003f7b' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%2301417E' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+  
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Left Aside Nav  */
+
+#nav {
+  position: fixed;
+  height: 95vh;
+  color: white;
+}
+
+#nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#nav li {
+  margin-top: 1rem;
+}
+
+#nav a {
+  text-decoration: none;
+  font-size: large;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
+#nav a:hover {
+  border-bottom: 2px solid;
+}
+
+#nav h1 {
+  font-size: 2rem !important;
+  font-family: 'Nunito', sans-serif;
+}
+
+#nav span {
+  width: 150px !important;
+  font-size: small;
+  text-align: center;
+}
+
+#search {
+  font-size: small;
+  padding: 5px;
+  background-color: #e7e7e7;
+}
+
+/* Entries Middle */
+
+#entries {
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Card Details */
+
+#card-body h3 {
+  color: #0455a1;
+  font-family: 'Nunito', sans-serif;
+}
+
+#card-body p {
+  line-height: 1.8;
+  font-weight: 400;
+  text-align: justify;
+}
+
+#card-body a {
+  color: #0455a1;
+  font-family: 'Nunito', sans-serif;
+}
+
+#card-body button {
+  font-size: small;
+  background-color: #0455a1;
+  color: white;
+}
+#card-body button:hover {
+  background-color: #012649;
+  color: white;
+}
+
+#date {
+  margin-left: 5px;
+}
+#date-logo {
+  font-size: 20px;
+}
+
+#image-cover {
+  width: 90%;
+  margin-left: 12px;
+}
+
+#card-image {
+  padding: 1px;
+  width: 100%;
+  border: 1px solid #0455a1;
+  border-radius: 2%;
+}
+
+#card-content {
+  margin-right: 24px;
+}
+
+.divider {
+  color: #0455a1;
+}
+
+/* Nav-Up */
+
+#nav-up {
+  background-color: #012649;
+  padding: 30px 150px 30px 150px;
+}
+
+#nav-up h1 {
+  color: white;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+#nav-up a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+}
+#nav-up a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* Update Page */
+
+#update-page {
+  height: 100vh;
+}
+
+/* Auth Page */
+
+#auth-page {
+  min-height: 100vh;
+}
+
+#auth-page-container {
+  width: 30%;
+}
+
+/* Create Page */
+
+#create-page {
+  min-height: 100vh;
+}
+
+/* Forms */
+
+#form {
+  color: white;
+}
+#form button {
+  background-color: white;
+  color: #012649;
+  font-weight: bold;
+}
+#form button:hover {
+  background-color: #012649;
+  color: white;
+}
+
+#form small {
+  color: white;
+}
+
+/* Entry Detail Page */
+
+#entry-detail {
+  min-height: 100vh;
+  background-color: white;
+}
+
+#entry-detail h1 {
+  font-family: 'Nunito', sans-serif;
+}
+
+#detail-image-div {
+  text-align: center;
+}
+
+#detail-header {
+  color: #0455a1;
+  font-family: "Lora", Arial, serif;
+}
+
+#detail-image {
+  width: 75%;
+  border-radius: 2%;
+}
+
+#detail-paragraph {
+  text-align: justify;
+}
+
+/* Contact Page */
+
+#contact-page {
+  min-height: 100vh;
+}
+
+/* Comment Page */
+
+#form-button {
+  background-color: #012649;
+  color: white;
+  font-weight: bold;
+  height: 38px;
+}
+#form-button:hover {
+  background-color: white;
+  color: #012649;
+}
+
+#comment-content h5 {
+  color: #0455a1;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 992px) {
+  #left-aside {
+    padding: 0 !important;
+  }
+
+  #nav a {
+    font-size: medium;
+  }
+
+  #nav h1 {
+    font-size: medium !important;
+  }
+  #nav p {
+    display: none;
+  }
+
+  #nav span {
+    display: none;
+  }
+
+  #nav-up h1 {
+    font-size: large;
+  }
+
+  #auth-page-container {
+    width: 40%;
+  }
+  #search-div {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  #logo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #nav {
+    padding: 3px;
+  }
+
+  #nav h1 {
+    font-size: small !important;
+  }
+
+  #nav-up h1 {
+    font-size: small;
+  }
+  #nav-up a {
+    font-size: small;
+  }
+
+  #auth-page-container {
+    width: 50%;
+  }
+
+  #search-div {
+    width: 45%;
+  }
+
+  #search {
+    font-size: x-small;
+  }
+}

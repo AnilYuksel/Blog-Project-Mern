@@ -1,28 +1,36 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 const entrySchema = mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    content:{
+    content: {
         type: String,
         required: true
     },
-    creator:{
+    image: {
+        type: String
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    creatorId: {
         type: String,
         required: true
     },
-    image:{
-        type:String
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
     },
-    date:{
-        type:Date,
-        default: new Date()
+    comments: {
+        type: [String],
+        default: []
     }
-   
 })
 
-const Entry = mongoose.model('entry',entrySchema)
+const Entry = mongoose.model('entry', entrySchema)
 
 export default Entry

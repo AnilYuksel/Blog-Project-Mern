@@ -1,89 +1,105 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Navbar, Nav, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import { useDispatch } from "react-redux"
-import { logOut } from "../redux/actions/authActions"
+import { useDispatch, useSelector } from "react-redux"
+import { logOut, getAccessToken } from "../redux/actions/authActions"
 import { useNavigate } from "react-router-dom"
-// import decode from "jwt-decode"
+import decode from "jwt-decode"
 
 
-const Navigation = () => {
+const Navigation = ({ search }) => {
     const dispatch = useDispatch()
     const location = useLocation()
     const [user, setUser] = useState()
+
+    const userState = useSelector(state => state.user)
 
     const navigate = useNavigate()
 
     const exit = async (id) => {
         await dispatch(logOut(id))
-        setUser(null)
-        navigate("/")
+        await setUser(null)
+        await navigate("/")
     }
 
-    // const renewAccessToken = async (id) => {
-    //     await dispatch(getAccessToken(id))
-    //     setUser(JSON.parse(localStorage.getItem("user")))
-    // }
+    const renewAccessToken = async (id) => {
+        if (!userState.googleLogin) {
+            dispatch(getAccessToken(id))
+            setUser(JSON.parse(localStorage.getItem("user")))
+        }
+    }
 
     useEffect(() => {
         if (localStorage.getItem('user') && !user) {
             setUser(JSON.parse(localStorage.getItem('user')))
         }
-        
 
-    //    const interval = setInterval(()=>{
-    //     const accessToken = user?.accessToken
-    //     if(accessToken){
-    //         const decodedAccessToken = decode(accessToken)
-    //         if(decodedAccessToken.exp * 1000 < new Date().getTime()){
-    //            renewAccessToken(user.user._id)
-    //         }
-    //     }
-    //    },5000)
+        const interval = setInterval(() => {
+            const accessToken = user?.accessToken
+            if (accessToken) {
+                const decodedAccessToken = decode(accessToken)
+                if (decodedAccessToken.exp * 1000 < new Date().getTime()) {
+                    renewAccessToken(user.user._id)
+                }
+            }
+        }, 5000)
 
-    //    return () => {clearInterval(interval)}
-        
+        return () => { clearInterval(interval) }
+
+
     }, [location, user])
 
 
-
     return (
-        <>
-            <Navbar bg="dark" variant="dark" collapseOnSelect>
-                <Container>
-                    <Link to="/"><Navbar.Brand>BLOG</Navbar.Brand></Link>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-                        <Nav>
-                            {
-                                user ? (
-                                    <>
-                                        <Nav.Link>
-                                            <Link to="/create">
-                                                <Button variant='outline-warning'>Create Entry</Button>
-                                            </Link>
-                                        </Nav.Link>
-                                        <Nav.Link>
-                                            <Button onClick={(e) => { exit(user.user._id) }} variant='outline-warning'>Log Out</Button>
-                                        </Nav.Link>
-                                    </>
-                                ) : (
-                                    <><Nav.Link>
-                                        <Link to="/signin">
-                                            <Button variant='outline-warning'>SignIn</Button>
-                                        </Link>
-                                    </Nav.Link>
-                                    </>
-                                )
-                            }
+
+        <div className='d-flex align-items-start flex-column' id='nav'>
+            <div>
+                <h1 className='mt-5'>ZAMAZINGO</h1>
+            </div>
+            <div className='mt-auto'>
+                <ul>
+                    <li>
+                        <Link to="/"> HOME</Link>
+                    </li>
+                    {
+                        user ? (
+                            <>
+                                <li>
+                                    <Link to="/create">
+                                      ZINGO
+                                    </Link>
+                                </li>
+                                <li>
+                                    <a id='logo-name' href='#!' onClick={(e) => { exit(user.user._id) }} variant='outline-warning'>LOG OUT</a>
+                                </li>
+                            </>
+                        ) : (
+                            <>       <li>
+                                <Link to="/signin">
+                                    SIGN IN
+                                </Link>
+                            </li>
+
+                            </>
+                        )
+                    }
+                    <li>
+                        <Link to="/contact">CONTACT</Link>
+                    </li>
+                </ul>
+            </div>
+            <div className='mt-auto' id='search-div'>
+                <form className="form">
+                    <input id='search' onChange={search} className="form-control mt-1" type="search" placeholder="Search by Title" aria-label="Search" />
+                </form>
+            </div>
+            <div className='footer mt-auto'>
+                <span>COPYRIGHT &copy; 2022 ANIL YUKSEL</span>
+            </div>
+
+        </div>
 
 
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </>
     )
 }
 

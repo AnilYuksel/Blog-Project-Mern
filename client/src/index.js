@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
-import './bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import entryReducer from "./redux/reducers/entryReducer"
 import { createStore, applyMiddleware, combineReducers } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
