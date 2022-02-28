@@ -31,10 +31,10 @@ const HomePage = () => {
     return (
         <div className='container' id='home-container'>
             <div className='row'>
-                <div className='col-xl-3 col-lg-3 col-md-2 col-sm-2 col-2' id="left-aside">
+                <div className='col-3' id="left-aside">
                     <Navigation search={search}></Navigation>
                 </div>
-                <div className='col-xl-9 col-lg-9 col-md-10 col-sm-10 col-10' id="entries">
+                <div className='col-9' id="entries">
 
                     {filteredEntries.map((entry) => (
                         <div key={entry._id}>

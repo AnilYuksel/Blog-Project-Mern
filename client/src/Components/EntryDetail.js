@@ -5,7 +5,7 @@ import Comment from './Comment'
 function EntryDetail({ entry }) {
   return (
     <div className='container'>
-      <div className='d-flex flex-column align-items-center'>
+      <div className='d-flex flex-column align-items-center' id='entry-details-content'>
         <div className='mt-5'>
           <h1 className='text-center' id='detail-header'>{entry.title}</h1>
         </div>
