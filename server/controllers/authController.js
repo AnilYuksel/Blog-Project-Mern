@@ -51,7 +51,8 @@ const signUp = async (req, res) => {
 
         res.cookie('token', refreshToken, {
             httpOnly: true,
-            sameSite: 'strict'
+            sameSite: 'strict',
+            secure: true
 
         })
 
@@ -94,7 +95,8 @@ const signIn = async (req, res) => {
 
         res.cookie('token', refreshToken, {
             httpOnly: true,
-            sameSite: 'strict'
+            sameSite: 'strict',
+            secure: true
 
         })
 
