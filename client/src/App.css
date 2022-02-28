@@ -328,7 +328,7 @@ p{
   
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
   #nav-up h1{
     font-size: small;
   }
