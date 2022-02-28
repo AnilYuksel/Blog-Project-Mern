@@ -31,7 +31,7 @@ function Entry({ entry }) {
             <div>
               <h3>
                 {
-                  entry.title.length >= 42 ? entry.title.slice(0, 42).concat("...") : entry.title
+                  entry.title.length >= 32 ? entry.title.slice(0, 32).concat("...") : entry.title
                 }
               </h3>
             </div>
@@ -51,7 +51,7 @@ function Entry({ entry }) {
             <div>
               <p className='mt-2'>
                 {
-                  entry.content.length >= 175 ? entry.content.slice(0, 175).concat("...") : entry.content
+                  entry.content.length >= 140 ? entry.content.slice(0, 140).concat("...") : entry.content
                 }
               </p>
             </div>
