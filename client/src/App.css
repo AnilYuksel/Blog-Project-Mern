@@ -323,6 +323,9 @@ p {
   #comment-content span {
     font-size: small;
   }
+  #auth-page-container {
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -381,17 +384,26 @@ p {
   #nav-up {
     padding: 30px 50px 30px 50px;
   }
-}
-#nav-up button {
-  font-size: medium;
-}
-#nav a {
-  font-size: x-small;
+  #nav-up h1{
+    font-size: medium;
+  }
+  #nav-up button {
+    font-size: medium;
+  }
+  #nav a {
+    font-size: x-small !important;
+  }
+  #auth-page-container {
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 450px) {
   #nav h1 {
     font-size: small !important;
+  }
+  #auth-page-container {
+    width: 70%;
   }
 }
 @media only screen and (max-width: 375px) {
@@ -401,7 +413,7 @@ p {
   #nav h5 {
     font-size: x-small !important;
   }
-  #nav a {
-    font-size: x-small !important;
+  #auth-page-container {
+    width: 80%;
   }
 }
