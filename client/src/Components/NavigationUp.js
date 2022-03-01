@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback  } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
@@ -17,18 +17,19 @@ const NavigationUp = () => {
 
   const navigate = useNavigate()
 
-  const exit = async (id) => {
+  const exit = async (e,id) => {
+    e.preventDefault()
     await dispatch(logOut(id))
     setUser(null)
     navigate("/")
   }
 
-  const renewAccessToken = async (id) => {
+  const renewAccessToken = useCallback(async (id) => {
     if (!userState.googleLogin) {
-      dispatch(getAccessToken(id))
-      setUser(JSON.parse(localStorage.getItem("user")))
+        dispatch(getAccessToken(id))
+        setUser(JSON.parse(localStorage.getItem("user")))
     }
-  }
+}, [dispatch, userState])
 
   useEffect(() => {
     if (localStorage.getItem('user') && !user) {
@@ -48,7 +49,8 @@ const NavigationUp = () => {
     return () => { clearInterval(interval) }
 
 
-  }, [location, user])
+  }, [location, user, renewAccessToken, userState])
+
 
 
   return (
@@ -67,7 +69,7 @@ const NavigationUp = () => {
                     <Link className='p-2' to="/create">ZINGO</Link>
 
 
-                    <a className='p-2' href='#!' onClick={(e) => { exit(user.user._id) }} variant='outline-warning'>LOG OUT</a>
+                    <a className='p-2' href='#!' onClick={(e) => { exit(e,user.user._id) }} variant='outline-warning'>LOG OUT</a>
 
                   </>
 

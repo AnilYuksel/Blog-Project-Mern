@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom"
 function EntryDetailsPage() {
 
     const location = useLocation()
-    const { entry } = location.state
+    const { entry } = location?.state
 
     return (
 

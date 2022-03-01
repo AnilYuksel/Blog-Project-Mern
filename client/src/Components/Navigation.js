@@ -17,12 +17,14 @@ const Navigation = ({ search }) => {
 
     const navigate = useNavigate()
 
-    const exit = async (id) => {
+    const exit = async (e,id) => {
+        e.preventDefault()
         await dispatch(logOut(id))
         setUser(null)
         navigate("/")
     }
 
+    
     const renewAccessToken = useCallback(async (id) => {
         if (!userState.googleLogin) {
             dispatch(getAccessToken(id))
@@ -50,6 +52,9 @@ const Navigation = ({ search }) => {
 
     }, [location, user, renewAccessToken, userState])
 
+    
+
+    
 
     return (
 
@@ -71,7 +76,7 @@ const Navigation = ({ search }) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a id='logo-name' href='#!' onClick={(e) => { exit(user.user._id) }} variant='outline-warning'>LOG OUT</a>
+                                    <a id='logo-name' href='#!' onClick={(e) => { exit(e,user.user._id) }} variant='outline-warning'>LOG OUT</a>
                                 </li>
                             </>
                         ) : (

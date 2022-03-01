@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { signUp, signIn } from "../redux/actions/authActions"
 import NavigationUp from '../Components/NavigationUp'
 import { useNavigate } from "react-router-dom"
@@ -19,11 +19,9 @@ function AuthPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-
   const handleSignIn = async (e) => {
     e.preventDefault()
-    await dispatch(signIn(formData))   
-    navigate("/")
+    await dispatch(signIn(formData))     
   }
 
   const handleSignUp = async (e) => {
@@ -32,6 +30,23 @@ function AuthPage() {
     navigate("/")
   }
 
+  const userState = useSelector((state) => state.user)
+  const { error } = userState
+  const user = JSON.parse(localStorage.getItem("user"))
+
+  const preventInitialRender = useRef(true)
+
+  useLayoutEffect(()=>{
+    if(preventInitialRender.current){
+      preventInitialRender.current = false
+      return
+    }
+    if(user){
+      navigate("/")
+    }
+  },[navigate,error,userState,user])
+
+ 
 
   return (
     <><div id='auth-page'>
@@ -45,6 +60,7 @@ function AuthPage() {
                   <Form id='form' className='align-content-center mt-5'
                     onSubmit={(e) => handleSignIn(e)}>
                     <h1 className='text-center mt-3'>Sign In</h1>
+                    {error && <p>{error}</p>}
                     <Form.Group className='mt-3'>
                       <Form.Label>Email</Form.Label>
                       <Form.Control onChange={(e) => setFormData({ ...formData, email: e.target.value })} type='email' placeholder='E-mail'></Form.Control>
@@ -60,6 +76,7 @@ function AuthPage() {
                 : (<Form id="form" className='align-content-center mt-5'
                   onSubmit={(e) => handleSignUp(e)}>
                   <h1 className='text-center mt-3'>Sign Up</h1>
+                  {error && <p>{error}</p>}
                   <Form.Group className='mt-3'>
                     <Form.Label>User Name</Form.Label>
                     <Form.Control onChange={(e) => setFormData({ ...formData, userName: e.target.value })} type='text' placeholder='User Name'></Form.Control>
