@@ -29,7 +29,7 @@ function CreateForm() {
     <>
       <Form id='form' onSubmit={(e) => handleSubmit(e)}>
         <Form.Group className='mt-5'>
-          <h1>Create an Entry</h1>
+          <h1>Create Your ZINGO</h1>
         </Form.Group>
         <Form.Group className='mt-3'>
           <Form.Label>Zingo Title</Form.Label>

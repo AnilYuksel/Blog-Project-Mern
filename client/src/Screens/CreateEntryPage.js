@@ -1,16 +1,24 @@
 import React from 'react'
 import NavigationUp from '../Components/NavigationUp'
 import CreateForm from "../Components/CreateForm"
+import { Container,Row,Col } from "react-bootstrap"
 
 
 const CreateEntryPage = () => {
   return (
     <>
-      <div id='create-page'>
+      <div id='auth-page'>
         <NavigationUp></NavigationUp>
-        <div className='container w-50'>
-          <CreateForm></CreateForm>
-        </div>
+        <Container id='auth-page-container'>
+          <Row>
+          <Col >
+            <CreateForm ></CreateForm>
+          </Col>
+        </Row>
+        </Container>
+        
+
+
       </div>
     </>
 
