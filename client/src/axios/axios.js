@@ -2,8 +2,7 @@ import axios from "axios"
 
 
 const API = axios.create({
-  // baseURL: "https://zamazingo.herokuapp.com/",
-  baseURL:"http://localhost:5000", 
+  baseURL: "https://zamazingo.herokuapp.com/",
   withCredentials: true
 })
 
