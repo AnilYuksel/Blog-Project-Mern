@@ -1,22 +1,30 @@
 #root {
   background-color: #012649;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%230455A1' stroke-width='59' stroke-opacity='0.28' %3E%3Ccircle fill='%23012649' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%2301284c' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%2300294f' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23002b52' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23002c55' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23002e58' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23002f5b' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%2300315e' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23003361' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23003465' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23003668' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%2300376b' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%2300396e' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23003b71' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23003c74' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23003e78' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23003f7b' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%2301417E' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;
-  
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%230455A1' stroke-width='59' stroke-opacity='0.28' %3E%3Ccircle fill='%23012649' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%2301284c' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%2300294f' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23002b52' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23002c55' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23002e58' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23002f5b' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%2300315e' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23003361' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23003465' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23003668' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%2300376b' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%2300396e' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23003b71' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23003c74' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23003e78' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23003f7b' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%2301417E' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-p{
-  font-family: 'Open Sans', sans-serif;
+p {
+  font-family: "Open Sans", sans-serif;
 }
-
-
 /* Left Aside Nav  */
 
 #nav {
   position: fixed;
   height: 95vh;
   color: white;
+}
+
+#nav h1 {
+  font-size: 2rem !important;
+  font-family: "Nunito", sans-serif;
+}
+
+#nav h5 {
+  font-family: "Nunito", sans-serif !important;
+  margin: 0;
+  font-size: medium;
 }
 
 #nav ul {
@@ -30,18 +38,13 @@ p{
 
 #nav a {
   text-decoration: none;
-  font-size: large;
+  font-size: medium !important;
   color: white;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #nav a:hover {
   border-bottom: 2px solid;
-}
-
-#nav h1 {
-  font-size: 2rem !important;
-  font-family: 'Nunito', sans-serif;
 }
 
 #nav span {
@@ -51,9 +54,13 @@ p{
 }
 
 #search {
-  font-size: small;
+  font-size: medium;
   padding: 5px;
   background-color: #e7e7e7;
+}
+
+#footer {
+  text-align: center;
 }
 
 /* Entries Middle */
@@ -67,7 +74,7 @@ p{
 
 #card-body h3 {
   color: #0455a1;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #card-body p {
@@ -78,7 +85,7 @@ p{
 
 #card-body a {
   color: #0455a1;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #card-body button {
@@ -128,13 +135,13 @@ p{
 #nav-up h1 {
   color: white;
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #nav-up a {
   color: white;
   text-decoration: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 #nav-up a:hover {
   border-bottom: 2px solid white;
@@ -202,7 +209,7 @@ p{
 }
 
 #entry-detail h1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #detail-image-div {
@@ -244,10 +251,37 @@ p{
 
 #comment-content h5 {
   color: #0455a1;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* Responsive */
+
+@media only screen and (max-width: 1400px) {
+  #nav {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #home-container {
+    margin: 0px 50px 0px 50px !important;
+  }
+  #card-body h3 {
+    font-size: large;
+  }
+  #card-body h5 {
+    font-size: medium;
+  }
+  #card-body span {
+    font-size: small;
+  }
+  #card-body p {
+    font-size: small;
+  }
+  #card-body a {
+    font-size: small;
+  }
+}
 
 @media only screen and (max-width: 992px) {
   #left-aside {
@@ -255,37 +289,29 @@ p{
   }
 
   #nav a {
-    font-size: medium;
+    font-size: small;
   }
 
   #nav h1 {
-    font-size: medium !important;
+    font-size: 24px !important;
   }
-  #nav p {
-    display: none;
+  #nav h5 {
+    font-size: small;
   }
-
+  #nav a {
+    font-size: small !important;
+  }
   #nav span {
-    display: none;
+    font-size: x-small;
   }
 
-  #nav-up h1 {
-    font-size: large;
-  }
-
-  #auth-page-container {
-    width: 40%;
-  }
-  #search-div {
-    width: 70%;
-  }
-  #home-container{
+  #home-container {
     margin: 0px 50px 0px 50px;
   }
-  #card-content{
+  #card-content {
     padding: 0px 16px 0px 16px;
   }
-  #entry-details-content h1{
+  #entry-details-content h1 {
     font-size: large;
   }
   #entry-details-content {
@@ -299,14 +325,20 @@ p{
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   #nav {
     padding: 3px;
+    width: 16%;
   }
-
   #nav h1 {
+    font-size: medium !important;
+  }
+  #nav h5 {
     font-size: small !important;
+  }
+  #footer {
+    font-size: xx-small;
+    text-align: center;
   }
 
   #nav-up a {
@@ -315,49 +347,61 @@ p{
   #nav-up button {
     font-size: small;
   }
-
-  #auth-page-container {
-    width: 50%;
-  }
-
   #search {
     font-size: x-small;
   }
   #card-content {
     font-size: small;
   }
- #card-content h3{
+  #card-content h3 {
     font-size: medium;
   }
-  #card-content h5{
+  #card-content h5 {
     font-size: small;
   }
-  #home-container{
+  #home-container {
     margin: 0;
   }
   #nav {
     padding-left: 10px;
   }
-  
 }
 
 @media only screen and (max-width: 576px) {
+  #home-container {
+    margin: 0 10px 0 10px !important;
+  }
+  #nav {
+    width: 20%;
+  }
+  #nav h1 {
+    font-size: medium !important;
+  }
+
   #nav-up {
     padding: 30px 50px 30px 50px;
   }
-  #nav-up h1{
-    font-size: medium;
+}
+#nav-up button {
+  font-size: medium;
+}
+#nav a {
+  font-size: x-small;
+}
+
+@media only screen and (max-width: 450px) {
+  #nav h1 {
+    font-size: small !important;
   }
-  #nav-up button{
-    font-size: medium;
+}
+@media only screen and (max-width: 375px) {
+  #nav h1 {
+    font-size: x-small !important;
   }
-  #search-div {
-    width: 75%;
+  #nav h5 {
+    font-size: x-small !important;
   }
   #nav a {
-    font-size: x-small;
-  }
-  #nav h1 {
-    font-size: x-small;
+    font-size: x-small !important;
   }
 }

@@ -58,10 +58,13 @@ const Navigation = ({ search }) => {
 
     return (
 
-        <div className='d-flex align-items-start flex-column w-25' id='nav'>
+        <div className='d-flex flex-column' id='nav'>
             <div>
                 <h1 className='mt-5'>ZAMAZINGO</h1>
             </div>
+            <div className='mt-auto'>
+                    <h5 className='text-center'>Share What You Have In Your Mind ...</h5>
+                </div>
             <div className='mt-auto'>
                 <ul>
                     <li>
@@ -99,7 +102,7 @@ const Navigation = ({ search }) => {
                     <input id='search' onChange={search} className="form-control mt-1" type="search" placeholder="Search by Title" aria-label="Search" />
                 </form>
             </div>
-            <div className='footer mt-auto'>
+            <div className='footer mt-auto' id='footer'>
                 <span>COPYRIGHT &copy; 2022 ANIL YUKSEL</span>
             </div>
 

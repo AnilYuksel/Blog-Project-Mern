@@ -35,7 +35,6 @@ const HomePage = () => {
                     <Navigation search={search}></Navigation>
                 </div>
                 <div className='col-9' id="entries">
-
                     {filteredEntries.map((entry) => (
                         <div key={entry._id}>
                             <Entry entry={entry}></Entry>
